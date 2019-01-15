@@ -4,6 +4,7 @@ import com.example.springbootmvcsecurity.dao.AdminDAO;
 import com.example.springbootmvcsecurity.dao.MemberDAO;
 import com.example.springbootmvcsecurity.entity.Admin;
 import com.example.springbootmvcsecurity.entity.Member;
+import com.example.springbootmvcsecurity.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -40,13 +41,12 @@ public class AuthUserDetailsService implements UserDetailsService {
         if (admin != null) {
             userName = admin.getUserName();
             password = admin.getPassword();
-            grantList.add(new SimpleGrantedAuthority("ADMIN"));
+            grantList.add(new SimpleGrantedAuthority(Constants.ADMIN_ROLE));
         }else {
             userName = member.getUserName();
             password = member.getPassword();
-            grantList.add(new SimpleGrantedAuthority("USER"));
+            grantList.add(new SimpleGrantedAuthority(Constants.MEMBER_ROLE));
         }
-
         return new User(userName, password, grantList);
     }
 }

@@ -2,7 +2,6 @@ package com.example.springbootmvcsecurity.dao;
 
 import com.example.springbootmvcsecurity.entity.Admin;
 import com.example.springbootmvcsecurity.formbean.AppUserForm;
-import com.example.springbootmvcsecurity.model.Gender;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +36,5 @@ public class AdminDAO {
         session.persist(admin);
         return admin;
     }
-
 
 }
