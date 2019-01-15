@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Successfully registered</title>
+    <style>
+        span {color: blue;}
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+
+<h2>You have successfully registered!</h2>
+
+<div th:if="${flashUser != null}">
+    <ul>
+        <li>User Name: <span th:utext="${flashUser.userName}">..</span></li>
+        <li>Email: <span th:utext="${flashUser.email}">..</span></li>
+    </ul>
+</div>
+
+</div>
+</body>
+</html>
